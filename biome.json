@@ -6,8 +6,13 @@
 		"useIgnoreFile": true
 	},
 	"files": {
-		"ignoreUnknown": false
-	},
+    "ignoreUnknown": false,
+    "includes": [
+      "**",
+      "!**/*.css",
+      "!**/*.scss"
+    ]
+  },
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab"

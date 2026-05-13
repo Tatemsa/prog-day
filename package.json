@@ -7,7 +7,12 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "biome format ./src",
+    "format:write": "biome format --write ./src",
+    "check": "biome check ./src",
+    "check:fix": "biome check --write ./src",
+    "biome": "biome check --write ./src"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.2.8",
