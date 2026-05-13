@@ -1,73 +1,102 @@
-# React + TypeScript + Vite
+# Prog-Day
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React application built with TypeScript, Vite, and Bun. This project features a clean setup with Biome for code formatting and linting, Tailwind CSS for styling, Shadcn UI components, and Cypress for end-to-end testing.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Frontend Framework**: React 19 with TypeScript
+- **Build Tool**: Vite
+- **Runtime/Package Manager**: Bun
+- **Styling**: Tailwind CSS with Shadcn UI components
+- **Code Quality**: Biome (formatting and linting)
+- **Testing**: Cypress (E2E)
+- **Development Tools**: ESLint, TypeScript
 
-## React Compiler
+## Installation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Make sure you have [Bun](https://bun.sh/) installed on your system.
 
-## Expanding the ESLint configuration
+```bash
+# Clone the repository
+git clone <repository-url>
+cd prog-day
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Install dependencies
+bun install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The following scripts are available via `bun run <script>`:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- `dev` / `start`: Start the development server with Vite
+- `build`: Build the project for production
+- `format`: Format code with Biome
+- `check`: Check code formatting and linting with Biome
+- `lint`: Run ESLint for additional linting rules
+- `preview`: Preview the production build locally
+
+## Development
+
+To start developing:
+
+```bash
+bun run dev
 ```
+
+This will start the Vite development server with hot module replacement (HMR).
+
+## Building
+
+To build the project for production:
+
+```bash
+bun run build
+```
+
+The built files will be in the `dist` directory.
+
+## Code Quality
+
+This project uses Biome for fast code formatting and linting:
+
+```bash
+# Format code
+bun run format
+
+# Check formatting and linting
+bun run check
+```
+
+## Testing
+
+End-to-end tests are written with Cypress:
+
+```bash
+# Open Cypress test runner
+bun x cypress open
+
+# Run tests headlessly
+bun x cypress run
+```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   └── ui/          # Shadcn UI components
+├── lib/
+│   └── utils.ts     # Utility functions
+├── assets/          # Static assets
+├── App.tsx          # Main app component
+├── main.tsx         # App entry point
+└── index.css        # Global styles
+```
+
+## Contributing
+
+1. Follow the code style enforced by Biome
+2. Run `bun run check` before committing
+3. Add tests for new features
+4. Update this README if needed
